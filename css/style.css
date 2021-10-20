@@ -1,0 +1,273 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #383838;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#pokeCardsGrid {
+  flex-flow: column nowrap;
+  width: 100vw;
+  display: none;
+}
+
+#pokeCardsGrid > div {
+  padding: 1em;
+  width: 100%;
+}
+
+.card {
+  border: 1px solid lightgrey;
+  border-radius: 0.25em;
+  background-color: white;
+  box-shadow: 0px 2px 4px lightgrey;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0px 2px 4px grey;
+}
+
+.cardBody {
+  min-height: 5em;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em 0.5em;
+  border-top: 1px solid lightgrey;
+  position: relative;
+}
+
+.cardTitle {
+  margin-bottom: 1em;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  font-size: 1.15rem;
+}
+
+.cardText p:first-of-type {
+  font-size: small;
+  text-decoration: line-through;
+  color: grey;
+}
+
+.cardButton {
+  width: 10em;
+  margin-top: 1em;
+  padding: 0.5em 0;
+  border-radius: 0.25em;
+  border: none;
+  background-color: lightseagreen;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 1em;
+  font-size: 1.15rem;
+}
+
+.cardButton:hover {
+  opacity: 0.8;
+}
+
+.cardButton:active {
+  opacity: 1;
+}
+
+.saleBanner {
+  position: absolute;
+  left: -2em;
+  top: 1em;
+  padding-left: 2.3em;
+  padding-top: 0.1em;
+  width: 12em;
+  height: 2em;
+  z-index: 1;
+  background-color: orangered;
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+  color: white;
+  box-shadow: 0px 1px 3px grey;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 7em;
+  background-color: white;
+  z-index: 2;
+  transition: all 0.5s;
+}
+
+.navShadow {
+  box-shadow: 0px 2px 4px grey;
+}
+
+#searchBar {
+  width: 100vw;
+  margin: 0 auto;
+  padding: 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#searchBar span {
+  position: absolute;
+  font-size: 1.5em;
+  margin-right: 0.5em;
+  color: lightgrey;
+  transition: all 1s;
+}
+
+#searchBarInput:hover + span {
+  color: grey;
+}
+
+#searchBarInput:focus + span {
+  color: lightseagreen;
+}
+
+#searchBarInput {
+  height: 2.25em;
+  width: 12em;
+  border-radius: 1.5em;
+  padding-left: 1em;
+  font-size: 1em;
+  border: 2px solid lightgrey;
+  outline: none;
+  transition: all 1s;
+}
+
+#searchBarInput:hover {
+  border: 2px solid grey;
+}
+
+#searchBarInput:focus {
+  border: 2px solid lightseagreen;
+  pointer-events: none;
+}
+
+#toTopButton {
+  color: lightseagreen;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  font-size: 3.5em;
+  z-index: 2;
+  display: none;
+}
+
+#toTopButton:hover {
+  opacity: 0.8;
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+#spinner {
+  width: 7em;
+  height: 7em;
+  border-radius: 3.5em;
+  border-top: 1px solid lightseagreen;
+  border-right: 5px solid lightseagreen;
+  border-bottom: 5px solid transparent;
+  border-left: transparent;
+  position: fixed;
+  top: 40vh;
+  left: calc(50vw - 3.5em);
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@media (min-width: 768px) {
+  #pokeCardsGrid {
+    flex-flow: row wrap;
+    width: 100vw;
+  }
+  #pokeCardsGrid > div {
+    padding: 1em;
+    width: 33.33%;
+  }
+  #searchBar {
+    width: 100vw;
+    padding: 0 1em;
+  }
+  #searchBarInput {
+    width: 15em;
+    font-size: 1.15em;
+  }
+  .cardButton {
+    width: 7em;
+    font-size: 0.8rem;
+  }
+  .cardText {
+    font-size: 1rem;
+  }
+  .cardTitle {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #pokeCardsGrid {
+    width: 68.3rem;
+    margin: 0 auto;
+  }
+  #pokeCardsGrid > div {
+    padding: 1em;
+    width: 25%;
+  }
+  #searchBar {
+    width: 68.3rem;
+    margin: 0 auto;
+  }
+}
