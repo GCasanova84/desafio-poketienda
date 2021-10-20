@@ -28,7 +28,7 @@ toTopButton.onclick = function () {
 
 searchBarInput.oninput = function () {
   pokeCardsGrid.innerHTML = null;
-  var pokeRegExp = new RegExp(searchBarInput.value);
+  var pokeRegExp = new RegExp(searchBarInput.value, 'i');
   var filteredPokemons = pokemons.filter(function (pokemon) {
     return pokeRegExp.test(pokemon.name);
   });

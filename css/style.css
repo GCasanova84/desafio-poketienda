@@ -22,6 +22,7 @@ img {
   flex-flow: column nowrap;
   width: 100vw;
   display: none;
+  margin: 0 0 5em 0;
 }
 
 #pokeCardsGrid > div {
@@ -183,7 +184,7 @@ nav {
 #toTopButton {
   color: lightseagreen;
   position: fixed;
-  bottom: 1em;
+  bottom: 0.25em;
   right: 1em;
   font-size: 3.5em;
   z-index: 2;
@@ -231,7 +232,7 @@ nav {
 @media (min-width: 768px) {
   #pokeCardsGrid {
     flex-flow: row wrap;
-    width: 100vw;
+    width: 100vw;    
   }
   #pokeCardsGrid > div {
     padding: 1em;
@@ -269,5 +270,8 @@ nav {
   #searchBar {
     width: 68.3rem;
     margin: 0 auto;
+  }
+  #toTopButton {
+    bottom: 1em;
   }
 }
